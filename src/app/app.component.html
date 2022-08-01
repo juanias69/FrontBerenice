@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2>CRUD Productos</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <label for="txtId" class="from-label">ID</label>
+      <input type="text" name="id" id="txtId" class="form-control" [(ngModel)]="producto.id" disabled="true">
+    </div>
+    <div class="col-md-2">
+      <label for="txtProduct_id" class="from-label">Producto ID</label>
+      <input type="text" name="id" id="txtProduct_id" class="form-control" [(ngModel)]="producto.product_id" required>
+    </div>
+    <div class="col-md-4">
+      <label for="txtProduct" class="from-label">Producto</label>
+      <input type="text" name="id" id="txtProduct" class="form-control" [(ngModel)]="producto.product" required>
+    </div>
+    <div class="col-md-4">
+      <label for="txtDescription" class="from-label">Descripción</label>
+      <input type="text" name="id" id="txtDescription" class="form-control" [(ngModel)]="producto.description" required>
+    </div>
+    <div class="col-md-2">
+      <label for="txtStock" class="from-label">Stock</label>
+      <input type="text" name="id" id="txtStock" class="form-control" [(ngModel)]="producto.stock" required>
+    </div>
+    <div class="col-md-2">
+      <label for="txtPrice" class="from-label">Precio</label>
+      <input type="text" name="id" id="txtPrice" class="form-control" [(ngModel)]="producto.price" required>
+    </div>
+    <div class="col-md-4">
+      <label for="txtType" class="from-label">Tipo</label>
+      <input type="text" name="id" id="txtType" class="form-control" [(ngModel)]="producto.type" required>
+    </div>
+    <div class="col-md-2">
+      <label for="txtActive" class="from-label">Activo</label>
+      <input type="text" name="id" id="txtActive" class="form-control" [(ngModel)]="producto.active" required>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn btn-success" type="button" (click)="onAddProducto(producto)">Agregar</button>
+      <button class="btn btn-warning m-2" type="button" (click)="onUpdateProducto(producto)">Modificar</button>
+      <button class="btn btn-danger" type="button" (click)="onDeleteProducto(producto.id)">Eliminar</button>
+      <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+    </div>
+  <div class="row mt-8">
+    <div class="col">
+      <table id="dtProducto" class="table table-striped" style="width: 100%;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Tipo</th>
+            <th>Activo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datatable">
+            <td><input type="button" value="Seleccionar" (click)="onSetData(item)"></td>
+            <td> {{ item.id }} </td>
+            <td>{{ item.product }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.stock }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.active }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
